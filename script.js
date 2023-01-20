@@ -33,7 +33,9 @@ toggleSwitch.addEventListener('click', () => {
 
 const showConsumption = () => {
 	if (distance.value == '' || fuel.value == '') {
-		alert('Uzupełnij wszystkie pola!')
+		consumptionInfo.style.display = 'none'
+		moneyConsumptionInfo.style.display = 'none'
+		alert('Uzupełnij wymagane pola!')
 	} else {
 		countConsumption()
 	}
@@ -48,6 +50,8 @@ const countConsumption = () => {
 		const averageMoneyConsumption = averageConsumption * firstFuelPrice.value
 		moneyConsumptionInfo.style.display = 'block'
 		moneyConsumption.textContent = averageMoneyConsumption.toFixed(2) + ' zł/100km'
+	} else {
+		moneyConsumptionInfo.style.display = 'none'
 	}
 }
 
@@ -59,6 +63,9 @@ const showPrice = () => {
 		people.value == '' ||
 		weight.value == ''
 	) {
+		priceInfo.style.display = 'none'
+		fullPriceInfo.style.display = 'none'
+		personPriceInfo.style.display = 'none'
 		alert('Uzupełnij wszystkie pola!')
 	} else {
 		countPrice()
