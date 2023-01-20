@@ -1,0 +1,149 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--font-color: #111111;
+	--bg-color: #fafafa;
+	--primary: #f5f5f5;
+}
+
+body[data-theme='dark'] {
+	--font-color: #f5f5f5;
+	--bg-color: #111111;
+	--primary: #121212;
+}
+
+body:not([data-theme='dark']) .theme-dark {
+	display: none;
+}
+
+body[data-theme='dark'] .theme-dark {
+	fill: #fff;
+}
+
+body[data-theme='dark'] .theme-light {
+	display: none;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--font-color);
+	background-color: var(--bg-color);
+}
+
+.box {
+	padding-bottom: 1em;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 1250px;
+	width: 100%;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em;
+	background-color: var(--primary);
+}
+
+.theme {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	border: none;
+	padding: 0;
+	background: transparent;
+}
+
+.theme svg {
+	width: 40px;
+	height: 40px;
+}
+
+.calculation-box {
+	padding: 0 1em;
+}
+
+h2 {
+	padding: 1em 0;
+}
+
+.input-boxes {
+	width: 100%;
+}
+
+.input-box {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1em;
+}
+
+label,
+.count,
+.count-price {
+	margin-bottom: 1em;
+}
+
+input {
+	padding: 0.5em;
+}
+
+.count,
+.count-price {
+	padding: 0.5em 1em;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+.consumption-info,
+.price-info,
+.full-price-info,
+.money-consumption-info,
+.person-price-info {
+	display: none;
+}
+
+.consumption,
+.price,
+.full-price,
+.money-consumption,
+.person-price {
+	font-weight: bold;
+}
+
+.btn-box {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+p {
+	margin-bottom: 0.5em;
+}
+
+@media (min-width: 768px) {
+	.input-box {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	label {
+		margin-bottom: 0;
+	}
+}

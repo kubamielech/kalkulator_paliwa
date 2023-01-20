@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator paliwa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="sun-icon" viewBox="0 0 32 32">
+            <path
+                d="M16 9c-3.859 0-7 3.141-7 7s3.141 7 7 7 7-3.141 7-7-3.141-7-7-7zm0 12c-2.762 0-5-2.238-5-5s2.238-5 5-5 5 2.238 5 5-2.238 5-5 5zm0-14a1 1 0 001-1V4a1 1 0 00-2 0v2a1 1 0 001 1zm0 18a1 1 0 00-1 1v2a1 1 0 002 0v-2a1 1 0 00-1-1zm7.777-15.365l1.414-1.414a.999.999 0 10-1.414-1.414l-1.414 1.414a.999.999 0 101.414 1.414zM8.223 22.365l-1.414 1.414a.999.999 0 101.414 1.414l1.414-1.414a.999.999 0 10-1.414-1.414zM7 16a1 1 0 00-1-1H4a1 1 0 000 2h2a1 1 0 001-1zm21-1h-2a1 1 0 000 2h2a1 1 0 000-2zM8.221 9.635a.999.999 0 101.414-1.414L8.221 6.807a.999.999 0 10-1.414 1.414l1.414 1.414zm15.558 12.728a.999.999 0 10-1.414 1.414l1.414 1.414a.999.999 0 101.414-1.414l-1.414-1.414z">
+            </path>
+        </symbol>
+        <symbol id="moon-icon" viewBox="0 0 32 32">
+            <path
+                d="M21.866 21.447c-3.117 3.12-8.193 3.12-11.313 0s-3.12-8.195 0-11.314a7.952 7.952 0 012.989-1.863.998.998 0 011.039.237.995.995 0 01.237 1.039c-.784 2.211-.25 4.604 1.391 6.245 1.638 1.639 4.031 2.172 6.245 1.391a.996.996 0 011.039.237.995.995 0 01.236 1.039 7.907 7.907 0 01-1.863 2.989zm-9.899-9.9a6.007 6.007 0 000 8.486c2.5 2.501 6.758 2.276 8.937-.51-2.247.141-4.461-.671-6.109-2.318s-2.458-3.861-2.318-6.108c-.18.141-.35.29-.51.451z">
+            </path>
+        </symbol>
+    </svg>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="box wrapper">
+        <div class="top">
+            <h1>Kalkulator paliwa</h1>
+            <button class="theme" aria-label="zmień motyw">
+                <svg class="theme-light">
+                    <use xlink:href="#sun-icon"></use>
+                </svg>
+                <svg class="theme-dark">
+                    <use xlink:href="#moon-icon"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="calculation-box">
+            <h2>Obliczanie spalania paliwa</h2>
+            <div class="input-boxes">
+                <div class="input-box">
+                    <label for="distance">Dystans:</label>
+                    <input type="number" name="distance" id="distance" value="100" required>
+                </div>
+                <div class="input-box">
+                    <label for="fuel">Ilość zatankowanego paliwa:</label>
+                    <input type="number" name="fuel" id="fuel" value="12" required>
+                </div>
+                <div class="input-box">
+                    <label for="firstFuelPrice">Cena paliwa (opcjonalne):</label>
+                    <input type="number" name="firstFuelPrice" id="firstFuelPrice" value="3.00" required>
+                </div>
+                <div class="btn-box">
+                    <button class="count">Oblicz</button>
+                </div>
+                <div class="answer-box">
+                    <p class="consumption-info">Średnie spalanie paliwa: <span class="consumption"></span></p>
+                    <p class="money-consumption-info">Średni koszt paliwa: <span class="money-consumption"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="calculation-box">
+            <h2>Obliczanie kosztu przejazdu</h2>
+            <div class="input-boxes">
+                <div class="input-box">
+                    <label for="travelDistance">Dystans:</label>
+                    <input type="number" name="travelDistance" id="travelDistance" value="100" required>
+                </div>
+                <div class="input-box">
+                    <label for="averageFuelConsumption">Średnie spalanie paliwa:</label>
+                    <input type="number" name="averageFuelConsumption" id="averageFuelConsumption" value="12" required>
+                </div>
+                <div class="input-box">
+                    <label for="fuelPrice">Cena paliwa:</label>
+                    <input type="number" name="fuelPrice" id="fuelPrice" value="3.00" required>
+                </div>
+                <div class="input-box">
+                    <label for="people">Ilość osób:</label>
+                    <input type="number" name="people" id="people" value="1" required>
+                </div>
+                <div class="input-box">
+                    <label for="weight">Średnia waga osoby:</label>
+                    <input type="number" name="weight" id="weight" value="70" required>
+                </div>
+                <div class="btn-box">
+                    <button class="count-price">Oblicz</button>
+                </div>
+                <div class="answer-box">
+                    <p class="price-info">Koszt przejazdu (bez osób): <span class="price"></span></p>
+                    <p class="full-price-info">Koszt przejazdu (z osobami): <span class="full-price"></span>
+                    </p>
+                    <p class="person-price-info">Koszt przejazdu na osobe: <span class="person-price"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        try {
+            document.body.dataset.theme = localStorage.getItem('theme')
+        } catch (e) {
+            document.body.dataset.theme = null
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
