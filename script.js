@@ -6,6 +6,7 @@ const consumption = document.querySelector('.consumption')
 const consumptionInfo = document.querySelector('.consumption-info')
 const moneyConsumption = document.querySelector('.money-consumption')
 const moneyConsumptionInfo = document.querySelector('.money-consumption-info')
+const answerOne = document.querySelector('.answer-one')
 
 const travelDistance = document.querySelector('#travelDistance')
 const averageFuelConsumption = document.querySelector('#averageFuelConsumption')
@@ -19,6 +20,7 @@ const fullPriceInfo = document.querySelector('.full-price-info')
 const fullPrice = document.querySelector('.full-price')
 const personPriceInfo = document.querySelector('.person-price-info')
 const personPrice = document.querySelector('.person-price')
+const answerTwo = document.querySelector('.answer-two')
 
 const toggleSwitch = document.querySelector('.theme')
 
@@ -35,6 +37,7 @@ const showConsumption = () => {
 	if (distance.value == '' || fuel.value == '') {
 		consumptionInfo.style.display = 'none'
 		moneyConsumptionInfo.style.display = 'none'
+		answerOne.style.display = "block"
 		alert('Uzupełnij wymagane pola!')
 	} else {
 		countConsumption()
@@ -43,6 +46,7 @@ const showConsumption = () => {
 
 const countConsumption = () => {
 	const averageConsumption = (fuel.value / distance.value) * 100
+	answerOne.style.display = "none"
 	consumptionInfo.style.display = 'block'
 	consumption.textContent = averageConsumption.toFixed(1) + ' l/100km'
 
@@ -66,6 +70,7 @@ const showPrice = () => {
 		priceInfo.style.display = 'none'
 		fullPriceInfo.style.display = 'none'
 		personPriceInfo.style.display = 'none'
+		answerTwo.style.display = "block"
 		alert('Uzupełnij wszystkie pola!')
 	} else {
 		countPrice()
@@ -77,6 +82,7 @@ const countPrice = () => {
 	const additionalConsumption = (weight.value * people.value * 0.6) / 100
 	const additionalTravelPrice = travelPrice + additionalConsumption * fuelPrice.value
 	const perPersonPrice = additionalTravelPrice / people.value
+	answerTwo.style.display = "none"
 	priceInfo.style.display = 'block'
 	price.textContent = travelPrice.toFixed(2) + ' zł'
 	fullPriceInfo.style.display = 'block'

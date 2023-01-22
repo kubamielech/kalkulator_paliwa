@@ -137,6 +137,11 @@ p {
 	margin-bottom: 0.5em;
 }
 
+.answer-box {
+	padding: .5em .5em 0;
+	border: 1px dashed var(--font-color);
+}
+
 @media (min-width: 768px) {
 	.input-box {
 		flex-direction: row;
