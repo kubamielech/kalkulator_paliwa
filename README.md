@@ -1,2 +1,2 @@
-# Kalkulator-paliwa
-Live: https://kubamielech.github.io/Kalkulator-paliwa/
+# kalkulator paliwa
+Live: https://kubamielech.github.io/kalkulator_paliwa/
