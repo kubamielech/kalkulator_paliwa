@@ -12,17 +12,21 @@ const travelDistance = document.querySelector('#travelDistance')
 const averageFuelConsumption = document.querySelector('#averageFuelConsumption')
 const fuelPrice = document.querySelector('#fuelPrice')
 const people = document.querySelector('#people')
-const weight = document.querySelector('#weight')
 const countPriceBtn = document.querySelector('.count-price')
 const priceInfo = document.querySelector('.price-info')
 const price = document.querySelector('.price')
-const fullPriceInfo = document.querySelector('.full-price-info')
-const fullPrice = document.querySelector('.full-price')
 const personPriceInfo = document.querySelector('.person-price-info')
 const personPrice = document.querySelector('.person-price')
 const answerTwo = document.querySelector('.answer-two')
 
 const toggleSwitch = document.querySelector('.theme')
+
+document.querySelectorAll('.fuel-price-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const price = button.getAttribute('data-price');
+        document.getElementById('fuelPrice').value = price;
+    });
+});
 
 toggleSwitch.addEventListener('click', () => {
 	const currentTheme = localStorage.getItem('theme')
@@ -64,11 +68,9 @@ const showPrice = () => {
 		travelDistance.value == '' ||
 		averageFuelConsumption.value == '' ||
 		fuelPrice.value == '' ||
-		people.value == '' ||
-		weight.value == ''
+		people.value == ''
 	) {
 		priceInfo.style.display = 'none'
-		fullPriceInfo.style.display = 'none'
 		personPriceInfo.style.display = 'none'
 		answerTwo.style.display = "block"
 		alert('Uzupełnij wszystkie pola!')
@@ -79,14 +81,10 @@ const showPrice = () => {
 
 const countPrice = () => {
 	const travelPrice = ((travelDistance.value * averageFuelConsumption.value) / 100) * fuelPrice.value
-	const additionalConsumption = (weight.value * people.value * 0.6) / 100
-	const additionalTravelPrice = travelPrice + additionalConsumption * fuelPrice.value
-	const perPersonPrice = additionalTravelPrice / people.value
+	const perPersonPrice = travelPrice / people.value
 	answerTwo.style.display = "none"
 	priceInfo.style.display = 'block'
 	price.textContent = travelPrice.toFixed(2) + ' zł'
-	fullPriceInfo.style.display = 'block'
-	fullPrice.textContent = additionalTravelPrice.toFixed(2) + ' zł'
 	personPriceInfo.style.display = 'block'
 	personPrice.textContent = perPersonPrice.toFixed(2) + ' zł'
 }
